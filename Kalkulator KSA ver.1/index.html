@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kalkulator Momen Magnet Efektif</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Kalkulator Jumlah Xα dan Momen Magnet Efektif (μ<sub>eff</sub>)</h2>
+      
+        <div id="step1">
+          <label>Nama Unsur atau Ligan:</label>
+          <input type="text" id="namaItem">
+      
+          <label>Tipe (pilih):</label>
+          <select id="tipeItem">
+            <option value="elemen">Unsur</option>
+            <option value="ligan">Ligan</option>
+          </select>
+      
+          <label>Jumlah:</label>
+          <input type="number" id="jumlahItem" step="1">
+      
+          <button onclick="tambahItem()">Tambah Item</button>
+      
+          <div id="daftarItem" style="margin-top: 20px;"></div>
+      
+          <button onclick="lanjutKeStep2()">Next</button>
+        </div>
+      
+        <div id="step2" class="hidden">
+          <label>Massa Sampel (M, gram):</label>
+          <input type="number" id="mass" step="0.0001">
+      
+          <label>Panjang Tabung (L, cm):</label>
+          <input type="number" id="length" step="0.01">
+      
+          <label>Pembacaan Tabung Kosong (R₀):</label>
+          <input type="number" id="r0" step="0.0001">
+      
+          <label>Pembacaan Tabung Sampel (R):</label>
+          <input type="number" id="r" step="0.0001">
+      
+          <label>Mr (Massa Molekul Relatif, g/mol):</label>
+          <input type="number" id="mr" step="0.01">
+      
+          <label>Suhu Mutlak (T, Kelvin):</label>
+          <input type="number" id="temp" step="0.1">
+      
+          <button onclick="hitungMedanMagnetik()">Hitung μ<sub>eff</sub></button>
+        </div>
+      
+        <div id="step3" class="hidden result-section">
+          <h2>Hasil Perhitungan</h2>
+          <div id="result"></div>
+          <button onclick="resetKalkulator()">Reset</button>
+        </div>
+      
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

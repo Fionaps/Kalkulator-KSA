@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Kalkulator Momen Magnet Efektif</title>
+</head>
+<body>
+<div class="container">
+  <h2>Kalkulator Momen Magnet Efektif</h2>
+  
+  <div class="step-indicator">
+    <div class="step active">1</div>
+    <div class="step-line"></div>
+    <div class="step">2</div>
+    <div class="step-line"></div>
+    <div class="step">3</div>
+  </div>
+
+  <div id="step1">
+    <div class="form-group">
+      <label for="namaItem">Nama Unsur atau Ligan</label>
+      <input type="text" id="namaItem" placeholder="Contoh: Cu2+, H2O, SO42-">
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tipeItem">Tipe</label>
+        <select id="tipeItem">
+          <option value="elemen">Unsur</option>
+          <option value="ligan">Ligan</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="jumlahItem">Jumlah</label>
+        <input type="number" id="jumlahItem" step="1" placeholder="0" min="1">
+      </div>
+    </div>
+    
+    <button onclick="tambahItem()" class="secondary">Tambah Item</button>
+    
+    <div class="items-list" id="daftarItem">
+      <div style="color: #95a5a6; text-align: center; padding: 20px;">
+        Belum ada item yang ditambahkan
+      </div>
+    </div>
+    
+    <button onclick="lanjutKeStep2()">Selanjutnya</button>
+  </div>
+
+  <div id="step2" class="hidden">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mass">Massa Sampel (M, gram)</label>
+        <input type="number" id="mass" step="0.0001" placeholder="0.0000">
+      </div>
+      
+      <div class="form-group">
+        <label for="length">Panjang Tabung (L, cm)</label>
+        <input type="number" id="length" step="0.01" placeholder="0.00">
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="r0">Pembacaan Tabung Kosong (R₀)</label>
+        <input type="number" id="r0" step="0.0001" placeholder="0.0000">
+      </div>
+      
+      <div class="form-group">
+        <label for="r">Pembacaan Tabung Sampel (R)</label>
+        <input type="number" id="r" step="0.0001" placeholder="0.0000">
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mr">Mr (Massa Molekul Relatif, g/mol)</label>
+        <input type="number" id="mr" step="0.01" placeholder="0.00">
+      </div>
+      
+      <div class="form-group">
+        <label for="temp">Suhu Mutlak (T, Kelvin)</label>
+        <input type="number" id="temp" step="0.1" placeholder="0.0">
+      </div>
+    </div>
+    
+    <button onclick="hitungMedanMagnetik()">Hitung μ<sub>eff</sub></button>
+    <button onclick="kembaliKeStep1()" class="secondary">Kembali</button>
+  </div>
+
+  <div id="step3" class="hidden">
+    <div class="result-section">
+      <h3>Hasil Perhitungan</h3>
+      
+      <div class="result-label">Jumlah Xα</div>
+      <div class="result-value" id="resultXalpha">0.0000 cm³/mol</div>
+      
+      <div class="result-label">Xg</div>
+      <div class="result-value" id="resultXg">0.0000 cm³/g</div>
+      
+      <div class="result-label">Xm</div>
+      <div class="result-value" id="resultXm">0.0000 cm³/mol</div>
+      
+      <div class="result-label">XA</div>
+      <div class="result-value" id="resultXA">0.0000 cm³/mol</div>
+      
+      <div class="result-label">Momen Magnet Efektif</div>
+      <div class="result-value" id="resultMueff" style="color: var(--accent);">0.000 µ<sub>B</sub></div>
+    </div>
+    
+    <button onclick="resetKalkulator()">Hitung Lagi</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
